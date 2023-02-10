@@ -1,0 +1,9 @@
+package client_rmi;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+import Matrice;
+public interface ObjetInterface extends Remote 
+{
+	public Matrice produit(Matrice m1,Matrice m2) throws RemoteException;
+}

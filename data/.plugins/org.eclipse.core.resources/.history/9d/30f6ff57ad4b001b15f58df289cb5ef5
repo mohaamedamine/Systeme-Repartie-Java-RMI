@@ -1,0 +1,4 @@
+public interface gererInterface {
+	public void decomposerMat1(Matrice m,Matrice m1,Matrice m2,Matrice m3,Matrice m4,int t[]);
+	public void decomposerMat2(Matrice m,Matrice m1,Matrice m2,Matrice m3,Matrice m4,int t[]);
+}

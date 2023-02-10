@@ -1,0 +1,9 @@
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface ObjetInterface extends Remote {
+	public Matrice produitMat(Matrice m1,Matrice m2) throws RemoteException ;
+	public Matrice produit(Matrice m1, Matrice m2,Matrice m3, Matrice m4) throws RemoteException;
+	public Matrice additionner(Matrice m1, Matrice m2) throws RemoteException;
+}

@@ -1,0 +1,110 @@
+
+import java.lang.*;
+
+import java.util.Scanner;
+
+public class Matrice {
+
+		private int nbL;             
+	    private int nbCol;             
+	    private int[][] data; 
+	
+	    public int getNbL() {
+			return nbL;
+		}
+
+		public void setNbL(int nbL) {
+			this.nbL = nbL;
+		}
+
+		public int getNbCol() {
+			return nbCol;
+		}
+
+		public void setNbCol(int nbCol) {
+			this.nbCol = nbCol;
+		}
+		
+		public void setElement(int i,int j,int valeur) {
+			data[i][j]=valeur;
+		}
+		public int getElement(int i,int j) {
+			return data[i][j];
+		}
+		
+		public int[][] getData() {
+			return data;
+		}
+
+		public void setData(int[][] data) {
+			this.data = data;
+		}
+
+		public Matrice(int nbL, int nbCol) {
+	    	 this.nbL = nbL;
+	    	 this.nbCol = nbCol;
+	         data = new int[nbL][nbCol];
+	    }
+		
+		public Matrice() {
+		}
+		
+		public void creerTab() {
+			 data = new int[nbL][nbCol];
+		}
+	    //remplir matrice
+	    public Matrice(int[][] data) {
+	        nbL = data.length;
+	        nbCol = data[0].length;
+	        
+	        this.data = new int[nbL][nbCol];
+	        for (int i = 0; i < nbL; i++)
+	            for (int j = 0; j < nbCol; j++)
+	                    this.data[i][j] = data[i][j];
+	    }
+	
+	    public void remplir() {
+	    	System.out.println("Enter les elements de la matrice"); 
+	    	Scanner n = new Scanner(System.in);
+	        for (int i = 0; i < nbL; i++)
+	        {
+	        	for (int j = 0; j < nbCol; j++) {
+	            	System.out.print(" m["+(i+1)+"]["+(j+1)+"]= ");
+	                data[i][j] = n.nextInt();
+	            }
+	        	System.out.print("\n");
+	        }
+	    }
+	
+	    public void afficher() {
+	        for (int i = 0; i < nbL; i++) {
+	            for (int j = 0; j < nbCol; j++) 
+	                System.out.print(" "+data[i][j]);
+	            System.out.println();
+	        }
+	    }
+	    
+	    public Matrice produit(Matrice B) {
+	        Matrice A = this;
+	        Matrice C = new Matrice(A.nbL, B.nbCol);
+	        for (int i = 0; i < C.nbL; i++)
+	            for (int j = 0; j < C.nbCol; j++)
+	                for (int k = 0; k < A.nbCol; k++)
+	                    C.data[i][j] =C.data[i][j] + (A.data[i][k] * B.data[k][j]);
+	        return C;
+	    }
+
+	   /* public static void main(String[] args) {
+	        int [][] m1 = { {2,0}, {1,7}};
+	        Matrice M = new Matrice(m1);
+	        M.afficher();        
+	        //Matrice A = Matrice.remplir2(2, 2);
+	        int [][] m2 = { { 1,2 }, {4,3}};
+	        Matrice B = new Matrice(m2);
+	        B.afficher();
+	        
+	        Matrice C= B.produit(M);
+	        C.afficher();
+	    }*/
+	}
+

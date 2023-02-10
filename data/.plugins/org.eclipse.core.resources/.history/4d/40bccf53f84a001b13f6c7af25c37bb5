@@ -1,0 +1,14 @@
+package server_rmi;
+import java.rmi.*;
+import java.rmi.server.*;
+
+import FabObjetInterface;
+import Objet;
+import ObjetInterface;
+public class FabObjetImpl extends UnicastRemoteObject implements FabObjetInterface{
+   public FabObjetImpl()throws RemoteException {}; 
+   public ObjetInterface newObjet() throws RemoteException {       
+   return new Objet();
+   }
+}
+

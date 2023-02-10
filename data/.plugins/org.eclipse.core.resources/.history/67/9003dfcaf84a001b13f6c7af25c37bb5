@@ -1,0 +1,11 @@
+
+
+import java.rmi.*;
+
+import client_rmi.ObjetInterface; 
+public interface FabObjetInterface extends Remote{
+   public ObjetInterface newObjet() throws RemoteException ;
+   }	
+
+
+

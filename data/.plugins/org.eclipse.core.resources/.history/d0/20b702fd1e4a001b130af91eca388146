@@ -1,0 +1,5 @@
+package server_rmi;
+
+public interface ObjetInterface {
+
+}

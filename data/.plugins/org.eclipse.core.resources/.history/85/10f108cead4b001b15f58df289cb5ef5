@@ -1,0 +1,11 @@
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+public interface ObjetInterface extends Remote 
+{
+	public Matrice produit(Matrice m1,Matrice m2) throws RemoteException;
+	public void decomposer(Matrice m,Matrice m1,Matrice m2,Matrice m3,Matrice m4,int t[]);
+	public void decomposer2(Matrice m,Matrice m1,Matrice m2,Matrice m3,Matrice m4,int [] t);
+	public Matrice Ramasser(Matrice m1,Matrice m2,Matrice m3,Matrice m4);
+	
+}

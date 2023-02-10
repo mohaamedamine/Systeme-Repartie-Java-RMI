@@ -1,0 +1,4 @@
+public class Entier {
+int entier;
+public Entier(){}
+}

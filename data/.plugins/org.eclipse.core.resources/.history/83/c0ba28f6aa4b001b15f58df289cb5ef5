@@ -1,0 +1,8 @@
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class Objet2 extends UnicastRemoteObject implements gererInterface {
+public Objet2()throws RemoteException{
+	super();
+}
+}

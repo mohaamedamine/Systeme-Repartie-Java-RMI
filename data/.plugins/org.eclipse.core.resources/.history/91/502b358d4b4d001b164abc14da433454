@@ -1,0 +1,110 @@
+
+import java.io.Serializable;
+import java.lang.*;
+
+import java.util.Scanner;
+
+public class Matrice implements Serializable{
+
+		private int nbL;             
+	    private int nbCol;             
+	    private int[][] data; 
+	
+	    public int getNbL() {
+			return nbL;
+		}
+
+		public void setNbL(int nbL) {
+			this.nbL = nbL;
+		}
+
+		public int getNbCol() {
+			return nbCol;
+		}
+
+		public void setNbCol(int nbCol) {
+			this.nbCol = nbCol;
+		}
+		
+		public void setElement(int i,int j,int valeur) {
+			data[i][j]=valeur;
+		}
+		public int getElement(int i,int j) {
+			return data[i][j];
+		}
+		
+		public Matrice(int nbL, int nbCol) {
+	    	 this.nbL = nbL;
+	    	 this.nbCol = nbCol;
+	         data = new int[nbL][nbCol];
+	    }
+		
+		public Matrice() {
+		}
+		
+		public void creerTab() {
+			 data = new int[nbL][nbCol];
+		}
+	    //remplir matrice
+	    public Matrice(int[][] data) {
+	        nbL = data.length;
+	        nbCol = data[0].length;
+	        this.data = new int[nbL][nbCol];
+	        for (int i = 0; i < nbL; i++)
+	            for (int j = 0; j < nbCol; j++)
+	                    this.data[i][j] = data[i][j];
+	    }
+	    
+	    public void SaisieMat1(int nL1,int nC1) {
+			Scanner s = new Scanner(System.in);
+			System.out.println("\n********************************** Matrice 1 **********************************\n");
+			System.out.println("Donner le nbre de lignes de m1 : ");
+			nL1 = s.nextInt();
+			System.out.println("Donner le nbre de colonnes de m1 : ");
+			nC1 = s.nextInt();
+			m1 = new Matrice(nL1, nC1);	
+	    }
+	    public void SaisieMat2(int nL1,int nC1,int nC2,Matrice m1,Matrice m2) {
+			Scanner s = new Scanner(System.in);
+			System.out.println("\n********************************** Matrice 1 **********************************\n");
+			System.out.println("Donner le nbre de lignes de m1 : ");
+			nL1 = s.nextInt();
+			System.out.println("Donner le nbre de colonnes de m1 : ");
+			nC1 = s.nextInt();
+			m1 = new Matrice(nL1, nC1);
+
+			System.out.println("Remplir la première matrice : ");
+			m1.remplir(nL1, nC1);
+
+			System.out.println("\n********************************** Matrice 2 **********************************\n");
+			System.out.println("Le nbre de ligne de m2 est deja fixé : " + m1.getNbCol());
+			System.out.println("Donner le nbre de colonnes de m2 : ");
+			nC2 = s.nextInt();
+			m2 = new Matrice(nC1, nC2);
+			System.out.println("Remplir la deuxième matrice : ");
+			m2.remplir(nC1, nC2);
+	    }
+	 
+	    public void remplir(int nbL,int nbCol) {
+	    	Scanner n = new Scanner(System.in);
+	        for (int i = 0; i < nbL; i++)
+	        {
+	        	for (int j = 0; j < nbCol; j++) {
+	            	System.out.print(" m["+(i+1)+"]["+(j+1)+"]= ");
+	                data[i][j] = n.nextInt();
+	            }
+	        	System.out.print("\n");
+	        }
+	    }
+	
+	    public void afficher() {
+	        for (int i = 0; i < nbL; i++) {
+	            for (int j = 0; j < nbCol; j++) 
+	                System.out.print(" "+data[i][j]);
+	            System.out.println();
+	        }
+	    }
+	    
+
+	}
+

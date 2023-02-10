@@ -1,0 +1,16 @@
+import java.io.Serializable;
+import java.rmi.*;
+import java.rmi.server.*;
+
+public class Object extends UnicastRemoteObject implements ObjectInterface,Serializable{
+
+	public Object() throws RemoteException {
+		super();
+	}
+
+	public Matrice produit(Matrice m1, Matrice m2, Matrice m3, Matrice m4) throws RemoteException {
+		Object2 O = new Object2();
+		return O.additionner(O.produitMat(m1, m2), O.produitMat(m3, m4));
+	}
+}
+

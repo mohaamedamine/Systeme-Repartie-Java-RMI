@@ -1,0 +1,39 @@
+
+import java.io.Serializable;
+import java.rmi.*;
+import java.rmi.server.*;
+
+public class Objet extends UnicastRemoteObject implements ObjetInterface,Serializable
+{
+       public Objet() throws RemoteException
+       {
+	    super();
+       }
+     
+	   public Matrice produit(Matrice m1,Matrice m2,Matrice m3,Matrice m4) throws RemoteException 
+       {
+       	Matrice res=new Matrice();
+	    res.setNbL(m1.getNbL());
+		res.setNbCol(m2.getNbCol());
+		res.creerTab();
+		int val=0;
+		for(int i=0;i<res.getNbL();i++) {
+			for(int j=0;j<res.getNbCol();j++) {
+				for(int k=0;k<m1.getNbCol();k++) {
+					val += m1.getElement(i, k)*m2.getElement(k, j);
+				}
+				res.setElement(i, j, val);
+				val=0;
+			}
+		}
+		return res;
+       }
+	   
+		
+		public Matrice additionner(Matrice m1, Matrice m2) throws RemoteException {
+			
+			return m1;
+		}
+		
+		
+}
